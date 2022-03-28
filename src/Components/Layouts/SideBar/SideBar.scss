@@ -1,0 +1,132 @@
+@import "../../Scss/variable";
+.sidebar {
+  transform: translateX(-200%);
+  transition: all 0.2s linear;
+  position: fixed;
+  background: $side-color;
+  width: 25%;
+  margin-top: 4%;
+  height: 100vh;
+  color: $text-color;
+  z-index: 9;
+  &-overlay {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    position: fixed;
+    background-color: rgba($color: #000000, $alpha: 0.6);
+    z-index: 2;
+    inset: 0;
+  }
+  &-logo {
+    margin: 0 20px;
+    border-bottom: 1px $main-color solid;
+    letter-spacing: 8px;
+    span {
+      color: $main-color;
+      font-size: 50px;
+      font-weight: 700;
+    }
+  }
+
+  .mobile-logo {
+    border-bottom: 1px $main-color solid;
+    text-align: center;
+    display: none;
+    color: $main-color;
+    font-size: 30px;
+    font-weight: 700;
+  }
+  &-items {
+    padding: 30px 15px;
+  }
+  .active {
+    background-color: $active-color;
+  }
+  &-item {
+    color: $text-color;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 8px 10px;
+    margin: 8px 0;
+    gap: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    &:hover {
+      background-color: #ccc;
+    }
+    i {
+      font-size: 25px;
+    }
+  }
+  &-bottom {
+    position: relative;
+  }
+
+  @media screen and (max-width: 1023px) {
+    margin-top: 6%;
+    width: 30%;
+    &-logo {
+      letter-spacing: 2px;
+    }
+    &-items {
+      padding: 15px 0px;
+    }
+    &-item {
+      flex-direction: column;
+      gap: 3px;
+      margin: 10px;
+    }
+    &-user {
+      flex-direction: column;
+      padding: 0;
+      gap: 5px;
+    }
+    &-menu {
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      li {
+        padding: 10px;
+      }
+    }
+  }
+  @media screen and (max-width: 767px) {
+    width: 50%;
+    margin-top: 12%;
+    &-logo {
+      display: none;
+    }
+    .mobile-logo {
+      display: block;
+    }
+    &-menu {
+      background-color: transparent;
+      li {
+        padding: 0;
+        padding-bottom: 10px;
+
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
+.visible {
+  transform: translateX(0);
+}
+.active-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+.fa-bars {
+  cursor: pointer;
+  position: fixed;
+  top: 22px;
+  left: 30px;
+  font-size: 25px;
+  color: $text-color;
+  z-index: 999;
+}

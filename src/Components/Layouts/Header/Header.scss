@@ -1,0 +1,68 @@
+@import "../../Scss/variable";
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 80px;
+  position: fixed;
+  background-color: $side-color;
+  z-index: 99;
+  color: $text-color;
+  &-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    img {
+      width: 60px;
+    }
+    span {
+      font-size: 20px;
+    }
+  }
+  &-right {
+    font-size: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  &-dropdown {
+    display: none;
+    position: absolute;
+    top: 80%;
+    background-color: $active-color;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: #fff;
+    left: 85%;
+  }
+  &-arrow {
+    position: absolute;
+    top: -20%;
+    right: 50%;
+    transform: translateX(50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid $active-color;
+  }
+  .active {
+    display: block;
+  }
+  @media screen and(max-width:1023px) {
+    &-left {
+      span {
+        display: none;
+      }
+    }
+  }
+  @media screen and(max-width:767px) {
+    padding: 10px 60px;
+    &-right {
+      display: none;
+    }
+  }
+}
